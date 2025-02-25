@@ -48,7 +48,7 @@ import androidx.annotation.NonNull;
 
 public class AdMobAdapter extends AbstractAdapter {
 
-    //AdMob requires a request agent name
+    //AdMob requires a request agent name test
     private final String REQUEST_AGENT = "unity";
     private final String PLATFORM_NAME = "unity";
     //adapter version
