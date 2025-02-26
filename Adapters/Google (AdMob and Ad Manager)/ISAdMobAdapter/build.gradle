@@ -1,7 +1,14 @@
+import groovy.json.JsonSlurper
+
 apply plugin: 'com.android.library'
 
+def versionsFile = file("../versions.json")
+def versionsData = new JsonSlurper().parse(versionsFile)
+
 ext {
-    adapterVersion = '4.3.47'
+    mediationsdkVersion = versionsData.mediationsdk
+    adapterVersion = versionsData.adapter
+    sdkVersion = versionsData.sdk
 }
 
 def getGitHash = { ->
@@ -49,8 +56,8 @@ android {
 }
 
  dependencies {
-    implementation 'com.ironsource.sdk:mediationsdk:8.4.0'
-    implementation 'com.google.android.gms:play-services-ads:23.5.0'
+    implementation "com.ironsource.sdk:mediationsdk:${mediationsdkVersion}"
+    implementation "com.google.android.gms:play-services-ads:${sdkVersion}"
     implementation 'org.jetbrains:annotations:15.0'
 }
 
